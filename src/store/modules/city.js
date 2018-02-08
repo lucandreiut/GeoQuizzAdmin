@@ -3,7 +3,7 @@ import googleAPI from '@/api'
 export default {
   namespaced: true,
   state: {
-    cities: null
+    cities: []
   },
   getters: {
     getCities (state) {
@@ -22,7 +22,6 @@ export default {
         key: 'AIzaSyA2Z00p2HO7QwKjvFZjSZP5QOMBicVaIzo'
       }
       }).then(response => {
-        console.log(response.data.results)
         let cities = response.data.results
         commit('setCities', cities)
       })

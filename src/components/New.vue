@@ -2,15 +2,15 @@
   <!-- eslint-disable -->
     <div>
         <b-form-group label="city">
-            City : <input v-model="message" placeholder="name">
-            <b-button @click="searchCity(message)"><h1>Search</h1></b-button>
+            City : <input v-model="name" placeholder="name">
+            <b-button @click="searchCity(name)"><h1>Search</h1></b-button>
             <div v-if="cities.length===0">
                 <p>No city have been found</p>
             </div>
             <div v-if="cities.length>0">
                 <h1>Cities found</h1>
                 <button v-for="city in cities" @click="setCenter(city.geometry.location.lat, city.geometry.location.lng)">
-                    <p>{{city.address_components[1].long_name}}</p>
+                    <p>{{city.address_components[0].long_name}} - {{city.address_components[1].long_name}}</p>
                 </button>
             </div>
         </b-form-group>
@@ -42,14 +42,12 @@ export default {
   name: 'Register',
   data () {
     return {
-      msg: 'This is the register page',
-      selected: '1',
       zoom:15,
       center: L.latLng(48.6915784, 6.1767092),
       url:'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       clicked: false,
-      message : null,
+      name : null,
       marker: null,
     }
   },
@@ -60,32 +58,35 @@ export default {
   },
   methods: {
     setSerie () {
-      if(this.clicked && this.message !== null)
-        alert('requête axios '+this.marker.getLatLng()+' '+this.message+' '+this.$refs.map.mapObject.getZoom())
-        this.$store.dispatch('game/setGame', this.selected).then(response => {
-        this.$router.push({name: 'Game'})
-      })
+      if((this.clicked && this.name != null) || (this.clicked && this.name != undefined)){
+        alert('requête axios '+this.marker.getLatLng()+' '+this.name+' '+this.$refs.map.mapObject.getZoom())
+      }
 
     },
-    placeMarker (event) {
+    placeMarker (event, lat, lng) {
+      if(lat ===undefined && lng===undefined){
+        lat = event.latlng.lat
+        lng = event.latlng.lng
+      }
       if (!this.clicked){
           this.clicked = true
-          this.marker = L.marker(event.latlng)
+          this.marker = L.marker([lat,lng])
           this.marker.addTo(this.$refs.map.mapObject)
         }else{
-          this.marker.setLatLng(event.latlng)
+          this.marker.setLatLng([lat,lng])
         }
     },
     searchCity(city){
-      console.log(city)
       if (city == null) {
         city = ""
       }
+      this.name = city
       this.$store.dispatch('city/setCities', city)
     },
     setCenter(lat, lng){
       this.center = L.latLng(lat,lng)
       this.$refs.map.mapObject.panTo(this.center)
+      this.placeMarker(null,lat,lng)
     }
   }
 }
@@ -93,6 +94,8 @@ export default {
 
 <style>
 @import "../../node_modules/leaflet/dist/leaflet.css";
+
+    .leaflet-dragging .leaflet-grab {cursor: move;}
     #geo-map{
         width: 50vw;
         height: 80vh;
