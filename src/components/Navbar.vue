@@ -1,6 +1,6 @@
 <template>
   <div>
-      <b-navbar class="geoquizz-navbar" toggleable="md" type="dark" variant="info">
+      <b-navbar class="geoquizz-navbar" toggleable="md" type="dark">
           <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
           <b-navbar-brand href="#">GEOQUIZZ - admin</b-navbar-brand>
           <b-collapse is-nav id="nav_collapse">
@@ -33,6 +33,7 @@ export default {
     .geoquizz-navbar{
         padding : 30px;
         font-size : 1.5em;
+        background-color: black;
     }
 
 </style>

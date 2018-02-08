@@ -1,8 +1,8 @@
 {
-  "name": "geoquizzapp",
+  "name": "geoquizzadmin",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "RENOUARD Quentin <quentin.renouard9@etu.univ-lorraine.fr>",
+  "description": "A Vue.js project for GeoQuizz administration",
+  "author": "ANDRE Luc <luc.andre4@etu.univ-lorraine.fr",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -11,8 +11,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "bootstrap": "^4.0.0",
     "bootstrap-vue": "^2.0.0-rc.1",
+    "leaflet-search": "^2.3.7",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue2-leaflet": "0.0.58",
