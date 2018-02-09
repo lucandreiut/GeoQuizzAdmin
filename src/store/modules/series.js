@@ -46,6 +46,7 @@ export default {
         ville: credentials.ville
       }).then(response => {
         commit('addSerie', response.data)
+        return response.data
       })
     },
     getSeries ({commit}){
