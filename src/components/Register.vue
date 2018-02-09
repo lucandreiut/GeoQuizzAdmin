@@ -8,7 +8,7 @@
                 <b-form-group label="Email address :"  description="We'll never share your email with anyone else.">
                     <b-form-input v-model="newuser.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" required placeholder="ex: john.doe@gmail.com"></b-form-input>
                 </b-form-group>
-                <b-form-group label="Password :" description="Minimum eight characters, at least one letter and one number">
+                <b-form-group label="Password :">
                     <b-form-input v-model="newuser.password" type="password" required placeholder="********">
                     </b-form-input>
                 </b-form-group>
