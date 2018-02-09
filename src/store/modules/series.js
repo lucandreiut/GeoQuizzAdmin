@@ -25,6 +25,13 @@ export default {
     },
     getOneSerie(state,serie){
       state.serie = serie
+    },
+    addPhoto(state,photo, serie) {
+      state.series.forEach(ser => {
+        if (ser.id === serie) {
+          ser.photos.push(photo)
+        }
+      })
     }
   },
   actions: {
@@ -44,6 +51,22 @@ export default {
     getOneSerie({commit},id){
       api.get('/series/'+id).then(response => {
         commit('getOneSerie',response.data)
+      })
+    },
+    addPhoto({commit}, credentials){
+      let data = new FormData()
+      data.append('file', credentials.image.img)
+      api.post('/series/'+credentials.serie,data, {
+        params: {
+          desc: credentials.image.desc,
+          pos: credentials.image.pos
+        },
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+      }).then(response => {
+        console.log(response.data)
+        commit('addPhoto', response.data, credentials.serie)
       })
     }
   }
