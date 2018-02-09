@@ -24,7 +24,11 @@ export default {
       state.series = series.series
     },
     getOneSerie(state,serie){
-      state.serie = serie
+      state.series.forEach(ser => {
+        if (ser.id === serie){
+          state.serie = ser
+        }
+      })
     },
     addPhoto(state,photo, serie) {
       state.series.forEach(ser => {
@@ -32,6 +36,7 @@ export default {
           ser.photos.push(photo)
         }
       })
+      state.serie.photos.push(photo)
     }
   },
   actions: {
