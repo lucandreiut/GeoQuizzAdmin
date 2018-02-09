@@ -5,5 +5,4 @@ const api = axios.create({
   baseURL: conf.googleURL
 })
 
-const
 export default api
