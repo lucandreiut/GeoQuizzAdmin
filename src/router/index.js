@@ -4,10 +4,10 @@ import Home from '@/components/Home'
 import Signin from '@/components/Signin'
 import Register from '@/components/Register'
 import New from '@/components/New'
-
+import store from '@/store'
 Vue.use(Router)
 
-export default new Router({
+export const router = new Router({
   routes: [
     {
       path: '/',
@@ -30,4 +30,13 @@ export default new Router({
       component: New
     }
   ]
+})
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'Signin' && to.name !== 'Register' && !store.getters['auth/isConnected']) {
+    next({name: 'Signin', query: {redirect: to.fullPath}})
+  } else if (to.name === 'Signin' && store.getters['auth/isConnected']) {
+    next({name: 'Home'})
+  } else {
+    next()
+  }
 })

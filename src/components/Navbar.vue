@@ -5,12 +5,13 @@
           <b-navbar-brand href="#">GEOQUIZZ - admin</b-navbar-brand>
           <b-collapse is-nav id="nav_collapse">
               <!-- Right aligned nav items -->
-              <b-navbar-nav v-if="$route.path !== '/game'" class="ml-auto mr-5">
+              <b-navbar-nav v-if="connected" class="ml-auto mr-5">
                   <b-nav-item to="/" exact class="mr-3">Home</b-nav-item>
                   <b-nav-item to="/new" exact class="mr-3">Add series</b-nav-item>
-                  <b-nav-item v-if="!connected" to="/signin" exact class="mr-3">Log In</b-nav-item>
-                  <b-nav-item v-else @click="logout()" exact class="mr-3">Log out</b-nav-item>
+                  <b-nav-item @click="logout()" exact class="mr-3">Log out</b-nav-item>
+
               </b-navbar-nav>
+
           </b-collapse>
       </b-navbar>
   </div>
