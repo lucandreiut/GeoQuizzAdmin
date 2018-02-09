@@ -58,8 +58,11 @@ export default {
   },
   methods: {
     setSerie () {
-      if((this.clicked && this.name != null) || (this.clicked && this.name != undefined)){
-        alert('requête axios '+this.marker.getLatLng()+' '+this.name+' '+this.$refs.map.mapObject.getZoom())
+      if((this.clicked && this.name != null) || (this.clicked && this.name != undefined) ){
+        let mapOptions = this.marker.getLatLng().lat + ';' + this.marker.getLatLng().lng + ';' + this.zoom
+        this.$store.dispatch('series/addSerie', {mapOptions,ville: this.name}).then(response =>{
+
+        })
       }
 
     },
