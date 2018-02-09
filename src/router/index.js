@@ -5,6 +5,8 @@ import Signin from '@/components/Signin'
 import Register from '@/components/Register'
 import New from '@/components/New'
 import store from '@/store'
+import Series from '@/components/Series'
+import Pictures from '@/components/Pictures'
 Vue.use(Router)
 
 export const router = new Router({
@@ -28,6 +30,16 @@ export const router = new Router({
       path: '/new',
       name: 'New',
       component: New
+    },
+    {
+      path: '/series',
+      name: 'Series',
+      component: Series
+    },
+    {
+      path: '/series/:idPicture',
+      name: 'AddPicture',
+      component: Pictures
     }
   ]
 })

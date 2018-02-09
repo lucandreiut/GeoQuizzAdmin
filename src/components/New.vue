@@ -1,29 +1,39 @@
 <template>
   <!-- eslint-disable -->
-    <div>
-        <b-form-group label="city">
-            City : <input v-model="name" placeholder="name">
-            <b-button @click="searchCity(name)"><h1>Search</h1></b-button>
-            <div v-if="cities.length===0">
-                <p>No city have been found</p>
-            </div>
-            <div v-if="cities.length>0">
-                <h1>Cities found</h1>
-                <button v-for="city in cities" @click="setCenter(city.geometry.location.lat, city.geometry.location.lng)">
-                    <p>{{city.address_components[0].long_name}} - {{city.address_components[1].long_name}}</p>
-                </button>
-            </div>
-        </b-form-group>
-        <b-form-group label="serie">
-          <br/>
-          Map center :
-          <div id="geo-map">
-          <v-map ref="map" id="map" :zoom=zoom :center=center @l-click="placeMarker">
-          <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
-          </v-map>
+    <div id="series-container" class="mr-4 ml-4">
+        <div id="city-choice">
+            <b-card no-body
+                    class="text-center">
+                <b-card-header>
+                    <b-form-group>
+                        <b-input required type="text" class="text-center" v-model="name" size="lg" placeholder="ex: Nancy"/>
+                        <b-button @click="searchCity(name)" class="mt-2" variant="danger" size="lg">Search this place !</b-button>
+                        <div v-if="cities.length===0">
+                            <p>No city have been found</p>
+                        </div>
+                        <div v-if="cities.length>0">
+                            <h1 class="m-3">We found this :</h1>
+                            <b-button class="m-2" variant="info" v-for="city in cities" @click="setCenter(city.geometry.location.lat, city.geometry.location.lng)">
+                                <p>{{city.address_components[0].long_name}} - {{city.address_components[1].long_name}}</p>
+                            </b-button>
+                        </div>
+                        <b-button @click="setSerie()" variant="danger" class="mt-5"><h1>Create series ! </h1></b-button>
+                    </b-form-group>
+                </b-card-header>
+            </b-card>
+
         </div>
-        </b-form-group>
-        <b-button @click="setSerie()"><h1>Create serie ! </h1></b-button>
+
+        <div id="map-container">
+            <b-form-group>
+            <div id="geo-map">
+                <v-map ref="map" id="map" :zoom=zoom :center=center @l-click="placeMarker">
+                    <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
+                </v-map>
+            </div>
+            </b-form-group>
+        </div>
+
     </div>
 </template>
 
@@ -61,7 +71,7 @@ export default {
       if((this.clicked && this.name != null) || (this.clicked && this.name != undefined) ){
         let mapOptions = this.marker.getLatLng().lat + ';' + this.marker.getLatLng().lng + ';' + this.zoom
         this.$store.dispatch('series/addSerie', {mapOptions,ville: this.name}).then(response =>{
-
+            this.$router.push({path: '/series/' + response.id})
         })
       }
 
@@ -98,11 +108,27 @@ export default {
 <style>
 @import "../../node_modules/leaflet/dist/leaflet.css";
 
+    #series-container{
+        text-align : center;
+     }
     .leaflet-dragging .leaflet-grab {cursor: move;}
     #geo-map{
         width: 50vw;
         height: 80vh;
         vertical-align : middle;
         display : inline-block;
+    }
+
+    #city-choice{
+        float : left;
+        width : 40%;
+        vertical-align : top;
+        display: inline-block;
+    }
+
+    #map-container {
+        float : right;
+        vertical-align : top;
+        display: inline-block;
     }
 </style>
