@@ -12,7 +12,7 @@
                     <b-form-input v-model="newuser.password" type="password" required placeholder="********">
                     </b-form-input>
                 </b-form-group>
-                <b-button type="submit" variant="info">Submit</b-button>
+                <b-button type="submit" variant="danger">Create Account !</b-button>
                 <b-link to="/signin">I already have an account</b-link>
             </b-form>
         </b-container>

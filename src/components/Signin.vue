@@ -9,7 +9,7 @@
                     <b-form-input type="password" v-model="user.password" required placeholder="********">
                     </b-form-input>
                 </b-form-group>
-                <b-button type="submit" variant="info">Submit</b-button>
+                <b-button type="submit" variant="danger">Connect !</b-button>
                 <b-link to="/register">I have not account yet</b-link>
             </b-form>
         </b-container>
