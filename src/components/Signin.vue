@@ -17,6 +17,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: 'Signin',
   data () {
@@ -26,8 +27,8 @@ export default {
   },
   methods: {
     signin () {
-      this.$store.dispatch('auth/login', this.user).then(response => {
-        alert('connected')
+      this.$store.dispatch('auth/login', this.user).then((response) => {
+        this.$router.push({path: '/'})
       })
     }
   }

@@ -24,6 +24,10 @@ export default {
       state.user = u
       state.connected = true
     },
+    setDeconnectedUser (state) {
+      state.user = null
+      state.connected = false
+    },
     initState (state) {
       Object.assign(state, initialState)
     }
@@ -37,6 +41,16 @@ export default {
         console.log(error)
         alert('Bad login or password')
       })
+    },
+    register ({commit}, credentials) {
+      return axios.post('http://localhost:8080/geoquizzapi/api/users', credentials).then(response => {
+        ls.set('token', response.data.token)
+        commit('setConnectedUser', response.data)
+      })
+    },
+    logout ({commit}, credentials) {
+      ls.remove('token')
+      return commit('setDeconnectedUser')
     }
   }
 }
