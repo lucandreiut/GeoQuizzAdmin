@@ -1,21 +1,39 @@
 <template>
     <div>
-        {{serie}}
-        <div>
-            <b-form @submit="addPhoto()">
-                <b-form-group label="Description" description="Put here the description of your image">
-                    <b-form-input v-model="image.desc" type="text" required placeholder="ex : Place Stanislas"></b-form-input>
-                </b-form-group>
-                <b-form-group label="Position :"  description="GPS coordinates of the type (lat;lng)">
-                    <b-form-input v-model="image.pos" type="text" required placeholder="ex: 6.12736;16.23839"></b-form-input>
-                </b-form-group>
-                <b-form-group label="Image :" description="The image you want to upload">
-                    <input type="file" @change="onFileChange">
-                </b-form-group>
-                <b-button type="submit" variant="info">Submit</b-button>
-            </b-form>
-        </div>
+        <b-card no-body
+                class="pictures-container text-center">
+            <b-card-header>
+                <h1>{{serie.ville}}</h1>
+            </b-card-header>
+            <b-card-body>
+                <div>
+                    <b-form @submit="addPhoto()">
+                        <h3>Places already in the series</h3>
+                        <b-list-group class="mb-5">
+                            <b-list-group-item v-for="picture in serie.photos"><h5>{{picture.desc}}</h5></b-list-group-item>
+                        </b-list-group>
 
+                        <h3>Add a new place</h3>
+                        <b-form-group>
+                            <b-input-group  prepend="Description">
+                                <b-form-input v-model="image.desc" type="text" required placeholder="ex : Place Stanislas"></b-form-input>
+                            </b-input-group>
+                        </b-form-group>
+                        <b-form-group>
+                            <b-input-group  prepend="Position">
+                                <b-form-input v-model="image.pos" type="text" required placeholder="ex: 6.12736;16.23839"></b-form-input>
+                            </b-input-group>
+                        </b-form-group>
+                        <b-form-group>
+                            <b-input-group prepend="Picture" description="The image you want to upload">
+                                <b-form-file type="file" @change="onFileChange"/>
+                            </b-input-group>
+                        </b-form-group>
+                        <b-button size="lg" variant="danger" type="submit">Submit</b-button>
+                    </b-form>
+                </div>
+            </b-card-body>
+        </b-card>
     </div>
 </template>
 
@@ -56,4 +74,8 @@ export default {
 
 <style scoped>
 
+    .pictures-container{
+        width : 50%;
+        margin : auto;
+    }
 </style>
