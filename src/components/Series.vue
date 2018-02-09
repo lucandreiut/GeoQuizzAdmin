@@ -1,10 +1,18 @@
 <template>
-    <div>
-        <div v-for="serie in series" :key="serie.id">
-            <h1>{{serie.ville}}</h1>
-            <b-button :to="'series/'+serie.id"><h1>More </h1></b-button>
+    <div id="series-container">
+        <b-card no-body
+                class="text-center">
+            <b-card-header>
+                <div class="city-button-container">
+                    <b-form-group>
+                        <div>
+                            <b-button v-for="serie in series" :key="serie.id" class="m-2" variant="info" size="lg" :to="'series/'+serie.id"><h2>{{serie.ville}} </h2></b-button>
+                        </div>
+                    </b-form-group>
+                </div>
+            </b-card-header>
+        </b-card>
 
-        </div>
     </div>
 </template>
 
@@ -27,4 +35,8 @@ export default {
 
 <style scoped>
 
+    #series-container{
+        width : 50%;
+        margin : auto
+    }
 </style>
