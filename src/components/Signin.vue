@@ -26,7 +26,9 @@ export default {
   },
   methods: {
     signin () {
-      this.$store.dispatch('auth/login', this.user)
+      this.$store.dispatch('auth/login', this.user).then(response => {
+        alert('connected')
+      })
     }
   }
 }
