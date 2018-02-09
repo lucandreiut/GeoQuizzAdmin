@@ -1,5 +1,4 @@
-import axios from 'axios'
-import conf from '../../config'
+import api from '../../api/googleAPI'
 
 export default {
   namespaced: true,
@@ -18,7 +17,7 @@ export default {
   },
   actions: {
     setCities ({commit}, city) {
-      axios.get(conf.googleURL, {params: {
+      api.get('', {params: {
         address: city,
         key: 'AIzaSyA2Z00p2HO7QwKjvFZjSZP5QOMBicVaIzo'
       }
