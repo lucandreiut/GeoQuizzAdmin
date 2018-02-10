@@ -2,8 +2,8 @@
 
 > A Vue.js project for administrate GeoQuizz game using the GeoQuizz API
 
-GeoQuizz game : https://github.com/Quinou-kun/GeoQuizzApp
-GeoQuizz API : https://github.com/Quinou-kun/GeoQuizzAPI
+  - GeoQuizz game : https://github.com/Quinou-kun/GeoQuizzApp
+  - GeoQuizz API : https://github.com/Quinou-kun/GeoQuizzAPI
 
 # Build Setup
 
@@ -28,9 +28,8 @@ In order to contribute to the game, you must be logged
 
 ## You can :
 - Add a new series, using a Leaflet Map and Google's geocoder
-
-Leaflet : http://leafletjs.com
-Google's geocoder : https://developers.google.com/maps/documentation/geocoding/intro
+  - Leaflet : http://leafletjs.com
+  - Google's geocoder : https://developers.google.com/maps/documentation/geocoding/intro
 
 - Add a new picture for a serie
 - See all the game's series
