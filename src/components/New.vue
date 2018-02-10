@@ -6,7 +6,7 @@
                     class="text-center">
                 <b-card-header>
                     <b-form-group>
-                        <b-input required type="text" class="text-center" v-model="name" size="lg" placeholder="ex: Nancy"/>
+                        <b-form-input required type="text" class="text-center" v-model="name" size="lg" pattern="^\s*[^\s]+.*$" placeholder="ex: Nancy"/>
                         <b-button @click="searchCity(name)" class="mt-2" variant="danger" size="lg">Search this place !</b-button>
                         <div v-if="cities.length===0">
                             <p>No city have been found</p>
@@ -68,9 +68,10 @@ export default {
   },
   methods: {
     setSerie () {
-      if((this.clicked && this.name != null) || (this.clicked && this.name != undefined) ){
+      if((this.clicked && this.name != null && this.name.match(/^\s*[^\s]+.*$/)) || (this.clicked && this.name != undefined && this.name.match(/^\s*[^\s]+.*$/))){
+
         let mapOptions = this.marker.getLatLng().lat + ';' + this.marker.getLatLng().lng + ';' + this.zoom
-        this.$store.dispatch('series/addSerie', {mapOptions,ville: this.name}).then(response =>{
+        this.$store.dispatch('series/addSerie', {mapOptions,ville: escape(this.name.trim())}).then(response =>{
             this.$router.push({path: '/series/' + response.id})
         })
       }
