@@ -20,9 +20,9 @@ docker-compose up
 ```
 Once you have an api running on your docker and your app who can use your api
 
-Go on your app
-Create an account 
-Create a Series called "Nancy" based in Nancy
+### Go on your app <br><br>
+### Create an account <br><br>
+### Create a Series called "Nancy" based in Nancy
 
 ### Create those images :
 ```
