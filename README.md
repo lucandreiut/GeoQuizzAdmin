@@ -35,7 +35,7 @@ In order to contribute to the game, you must be logged
 
 ## Built With
 
-* [VueJs](https://github.com/vuejs/vue) (example)
+* [VueJs](https://github.com/vuejs/vue)
 
 # Creators
 
