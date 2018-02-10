@@ -2,10 +2,7 @@
 
 # ADMIN APPLICATION
 
-> A Vue.js project for administrate GeoQuizz game using the GeoQuizz API
-
-  - GeoQuizz game : https://github.com/Quinou-kun/GeoQuizzApp
-  - GeoQuizz API : https://github.com/Quinou-kun/GeoQuizzAPI
+This project is an Admin application that's been developed during the "Atelier 2" week of the CISIIE professionnal licence in 2017-2018, along with a [Web app](https://github.com/Quinou-kun/GeoQuizzApp) and an [API](https://github.com/lucandreiut/GeoQuizzAPI).
 
 # Build Setup
 
