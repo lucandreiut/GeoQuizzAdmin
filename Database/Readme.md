@@ -1,21 +1,31 @@
-Move into /DockerGeoQuizz/Postgres
-Run docker build -t lpro/pg11 .
+<p align="center"><img src="https://raw.githubusercontent.com/lucandreiut/GeoQuizzAdmin/develop/src/assets/logo/logo.png"/></p>
 
-Move into /Docker/Wildfly admin
-Run docker build -t lpro/wildfly-admin .
+# GeoQuizzAdmin
 
-Move back to /DockerGeoQuizz
-run docker-compose up
+``` bash
 
+
+
+# Move into /DockerGeoQuizz/Postgres
+# Run :
+docker build -t lpro/pg11 .
+
+# Move into /Docker/Wildfly admin
+# Run :
+docker build -t lpro/wildfly-admin .
+
+# Move back to /DockerGeoQuizz
+# Run :
+docker-compose up
+```
 Once you have an api running on your docker and your app who can use your api
 
 Go on your app
-create an account 
+Create an account 
+Create a Series called "Nancy" based in Nancy
 
-Create a Series called "Nancy" based on Nancy
-
-create those images :
-
+### Create those images :
+```
 Description : Place Stanislas
 Position : 48.693607;6.183253
 Picture : select <yourAppRepository>/Database/images/Place_Stanislas.jpg
@@ -59,4 +69,4 @@ Picture : select <yourAppRepository>/Database/images/Parc_Charles.jpg
 Description : Cathédrale Notre-Dame-de-l'Annonciation
 Position : 48.691573;6.185825
 Picture : select <yourAppRepository>/Database/images/Cathedrale_Notre_Dame.jpg
-
+```
