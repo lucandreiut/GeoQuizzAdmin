@@ -31,7 +31,7 @@ In order to contribute to the game, you must be logged
   - Leaflet : http://leafletjs.com
   - Google's geocoder : https://developers.google.com/maps/documentation/geocoding/intro
 
-- Add a new picture for a serie
+- Add a new picture for a series
 - See all the game's series
 
 ## Built With
