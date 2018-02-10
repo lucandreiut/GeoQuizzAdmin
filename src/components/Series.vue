@@ -20,9 +20,6 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'series',
-  created () {
-    this.$store.dispatch('series/getSeries')
-  },
   computed: {
     ...mapGetters({
       series: 'series/getSeries'
