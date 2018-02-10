@@ -4,11 +4,11 @@
 /* eslint-disable */
 import Vue from 'vue'
 import App from './App'
-import router from './router'
 import store from './store'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import L from 'leaflet'
+import {router} from './router'
 require('bootstrap/dist/css/bootstrap.css')
 
 delete L.Icon.Default.prototype._getIconUrl;

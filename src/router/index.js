@@ -4,11 +4,12 @@ import Home from '@/components/Home'
 import Signin from '@/components/Signin'
 import Register from '@/components/Register'
 import New from '@/components/New'
-import Game from '@/components/Game'
-
+import store from '@/store'
+import Series from '@/components/Series'
+import Pictures from '@/components/Pictures'
 Vue.use(Router)
 
-export default new Router({
+export const router = new Router({
   routes: [
     {
       path: '/',
@@ -31,9 +32,23 @@ export default new Router({
       component: New
     },
     {
-      path: '/game',
-      name: 'Game',
-      component: Game
+      path: '/series',
+      name: 'Series',
+      component: Series
+    },
+    {
+      path: '/series/:idPicture',
+      name: 'AddPicture',
+      component: Pictures
     }
   ]
+})
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'Signin' && to.name !== 'Register' && !store.getters['auth/isConnected']) {
+    next({name: 'Signin', query: {redirect: to.fullPath}})
+  } else if (to.name === 'Signin' && store.getters['auth/isConnected']) {
+    next({name: 'Home'})
+  } else {
+    next()
+  }
 })
