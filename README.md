@@ -1,8 +1,11 @@
-# geoquizzapp
+# GeoQuizzAdmin
 
-> A Vue.js project
+> A Vue.js project for administrate GeoQuizz game using the GeoQuizz API
 
-## Build Setup
+GeoQuizz game : https://github.com/Quinou-kun/GeoQuizzApp
+GeoQuizz API : https://github.com/Quinou-kun/GeoQuizzAPI
+
+# Build Setup
 
 ``` bash
 # install dependencies
@@ -18,4 +21,28 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# Features
+
+Thanks to this application, you will be able to add content for the GeoQuizz game ! 
+In order to contribute to the game, you must be logged
+
+## You can :
+- Add a new series, using a Leaflet Map and Google's geocoder
+
+Leaflet : http://leafletjs.com
+Google's geocoder : https://developers.google.com/maps/documentation/geocoding/intro
+
+- Add a new picture for a serie
+- See all the game's series
+
+## Built With
+
+* [VueJs](https://github.com/vuejs/vue) (example)
+
+# Creators
+
+* [Quentin RENOUARD](https://github.com/Quinou-kun)
+* [Luc ANDRE](https://github.com/lucandreiut)
+* [Quentin DELAMARRE](https://github.com/windos757)
+* [Allan DEMARBRE](https://github.com/demarbre1u)
+* [Nacera ELIAS](https://github.com/EliasNacera)
