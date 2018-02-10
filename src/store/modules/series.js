@@ -24,11 +24,7 @@ export default {
       state.series = series.series
     },
     getOneSerie(state,serie){
-      state.series.forEach(ser => {
-        if (ser.id === serie){
-          state.serie = ser
-        }
-      })
+      state.serie = serie
     },
     addPhoto(state,photo, serie) {
       state.series.forEach(ser => {

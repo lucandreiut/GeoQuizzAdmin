@@ -25,6 +25,9 @@
 <script>
 export default {
   name: 'Home',
+  created () {
+    this.$store.dispatch('series/getSeries')
+  },
   data () {
     return {
       msg: 'This is the home page'
