@@ -1,4 +1,4 @@
-# GeoQuizzAdmin
+![alt text](https://github.com/lucandreiut/GeoQuizzAdmin/tree/develop/src/assets/logo/logo.png)
 
 > A Vue.js project for administrate GeoQuizz game using the GeoQuizz API
 
