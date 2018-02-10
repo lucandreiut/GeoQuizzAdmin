@@ -1,5 +1,7 @@
 <p align="center"><img src="https://raw.githubusercontent.com/lucandreiut/GeoQuizzAdmin/develop/src/assets/logo/logo.png"/></p>
 
+# ADMIN APPLICATION
+
 > A Vue.js project for administrate GeoQuizz game using the GeoQuizz API
 
   - GeoQuizz game : https://github.com/Quinou-kun/GeoQuizzApp
