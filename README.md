@@ -1,6 +1,6 @@
-<p align="center">test</p>
+<p align="center">![alt text](https://raw.githubusercontent.com/lucandreiut/GeoQuizzAdmin/develop/src/assets/logo/logo.png)</p>
 
-![alt text](https://raw.githubusercontent.com/lucandreiut/GeoQuizzAdmin/develop/src/assets/logo/logo.png)
+
 
 > A Vue.js project for administrate GeoQuizz game using the GeoQuizz API
 
