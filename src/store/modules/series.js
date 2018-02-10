@@ -37,12 +37,12 @@ export default {
   },
   actions: {
     addSerie ({commit}, credentials) {
-      api.post('/series', {
+      return api.post('/series', {
         mapOptions: credentials.mapOptions,
         ville: credentials.ville
       }).then(response => {
         commit('addSerie', response.data)
-        return response.data
+        return response
       })
     },
     getSeries ({commit}){
@@ -67,7 +67,6 @@ export default {
             'Content-Type': 'multipart/form-data'
         }
       }).then(response => {
-        console.log(response.data)
         commit('addPhoto', response.data, credentials.serie)
       })
     }

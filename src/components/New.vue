@@ -71,8 +71,8 @@ export default {
       if((this.clicked && this.name != null && this.name.match(/^\s*[^\s]+.*$/)) || (this.clicked && this.name != undefined && this.name.match(/^\s*[^\s]+.*$/))){
 
         let mapOptions = this.marker.getLatLng().lat + ';' + this.marker.getLatLng().lng + ';' + this.zoom
-        this.$store.dispatch('series/addSerie', {mapOptions,ville: escape(this.name.trim())}).then(response =>{
-            this.$router.push({path: '/series/' + response.id})
+        this.$store.dispatch('series/addSerie', {mapOptions,ville: escape(this.name.trim())}).then(response => {
+          this.$router.push({path: '/series/' + response.data.id})
         })
       }
 
